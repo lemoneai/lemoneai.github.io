@@ -1,12 +1,12 @@
 $(document).ready(function(){
 
     // Page First start
-    var Page_first_title = '100% Visibility into the entire security landscape';
+    var Page_first_title = "100% Visibility into the entire security landscape";
     var Page_first_description ='Recognize the paramount significance of 100% visibility into the entire security landscape. LemONE AI platform offers meticulous asset management, meticulous risk assessment, and unparalleled  transparency across on-prem, multi-cloud, and edge locations. This empowers CISOs, IT, Security Teams, and Application  Development Teams with actionable insights, ensuring informed decisions that enhance your organization s security posture';
     // Page First end
 
     // Page Second start
-    var Page_Second_title = 'Continuously Verify Your Security Posture in Real-Time';
+    var Page_Second_title = "Continuously Verify Your Security Posture in Real-Time";
     var Page_Second_description= "In the realm of cybersecurity, the essence lies in staying steps ahead of potential threats. Harnessing the power of Machine Learning (ML), Artificial Intelligence (AI), and the capabilities of Large Language Models (LLM), the LemONE AI platform excels in anomaly detection and behavior analysis. By ingesting real-time data and leveraging threat intelligence, we empower you to preempt attacks, ensuring your digital environment remains fortified against evolving threats.";
     // Page Second end
 

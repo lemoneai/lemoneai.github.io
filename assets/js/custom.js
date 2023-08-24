@@ -577,7 +577,15 @@
 							t.find(".control-nav .slider-total-index").html(dsnGrid.numberText(e.imgs.length)), dsnGrid.WebGLDistortionHoverEffects(e, {
 								parent: o,
 								vertical: !s,
-								mousewheel: true,
+								preventClicks: true,
+								keyboard: {
+                                    enabled: true,
+                                    onlyInViewport: false,
+                                    pageUpDown:true,
+                                },
+                                mousewheel: true,
+                                mousewheelControl: true,
+                         
 								nextEl: t.find(".next-container"),
 								prevEl: t.find(".prev-container"),
 								onComplete: function() {},
@@ -608,9 +616,18 @@
 				swiperObject: function(t, n = !0) {
 					return new Swiper(t.find(".slide-inner").get(0), {
 						speed: 1e3,
-						mousewheel: true,
+						preventClicks: true,
 						grabCursor: !0,
-						allowTouchMove: !0,
+						keyboard: {
+                            enabled: true,
+                            onlyInViewport: false,
+                            pageUpDown:true,
+                        },
+                      
+                        mousewheel: true,
+                     
+                        updateOnWindowResize:true,
+						allowTouchMove: true,
 						direction: n ? "vertical" : "horizontal",
 						slidesPerView: 1,
 						parallax: !0,
@@ -1472,7 +1489,3 @@
 		}))
 	}(), o()
 }(jQuery);
-
-
-
-

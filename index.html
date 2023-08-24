@@ -13,21 +13,71 @@
     <!-- custom styles (optional) -->
     <link href="assets/css/plugins.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--<script src="assets/js/jquery-3.1.1.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0NG7VLPYFM"></script>
-    <script async src="assets/js/dynamic.js"></script>
-    <script src="
-    https://cdn.jsdelivr.net/npm/parsleyjs@2.9.2/dist/parsley.min.js
-    "></script>
-    <link href="
-    https://cdn.jsdelivr.net/npm/parsleyjs@2.9.2/src/parsley.min.css
-    " rel="stylesheet">
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-0NG7VLPYFM');
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.2/dist/parsley.min.js"></script>
+    <script type="text/javascript">
+        var submitted = false;
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#gform').parsley().on('field:validated', function () {
+                var ok = $('.parsley-error').length === 0;
+                $('.bs-callout-info').toggle(!ok);
+            });
+
+            $("#gform").on('submit', function (e) {
+                e.preventDefault();
+                var form = $(this);
+                form.parsley().validate();
+                if (form.parsley().isValid()) {
+                    $('#gform *').fadeOut(2000);
+                    $('#gform').prepend('Thank you for getting in touch...');
+                }
+            });
+        });
+    </script>
+
+    <script async src="assets/js/dynamic.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        var RC2KEY = '6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR',
+            doSubmit = false;
+        function recaptchaCallback() {
+            document.getElementById('myField').value = 'nonEmpty';
+        }
+
+        function reCaptchaVerify(response) {
+            if (response === document.querySelector('.g-recaptcha-response').value) {
+                doSubmit = true;
+            }
+        }
+
+        function reCaptchaExpired() {
+            /* do something when it expires */
+        }
+
+        function reCaptchaCallback() {
+            /* this must be in the global scope for google to get access */
+            grecaptcha.render('id', {
+                'sitekey': RC2KEY,
+                'callback': reCaptchaVerify,
+                'expired-callback': reCaptchaExpired
+            });
+        }
     </script>
 
 </head>
@@ -80,10 +130,10 @@
                                             </div>
                                             <div class="slide-content p-absolute ">
                                                 <div class="content p-relative">
-                                                    <div class="d-block"></div>
-                                                    <h1 class="max-w570 title d-inline-block Page_first_title">
+                                                    <div class="metas d-inline-block Page_first_title">
                                                         100% Visibility into the entire security landscape
-                                                    </h1>
+                                                    </div>
+                                                    <div class="d-block"></div>
                                                     <p
                                                         class="max-w570 mt-30 description text-justify Page_first_description">
                                                         Recognize the
@@ -108,9 +158,9 @@
                                             <div class="slide-content p-absolute  ">
                                                 <div class="content p-relative">
                                                     <div class="d-block"></div>
-                                                    <h1 class="title  d-inline-block Page_Second_title">
+                                                    <div class="metas d-inline-block Page_Second_title">
                                                         Continuously Verify Your Security Posture in Real-Time
-                                                    </h1>
+                                                    </div>
                                                     <p
                                                         class="max-w570 mt-30 description text-justify Page_Second_description">
                                                         In the realm of
@@ -137,9 +187,9 @@
                                             <div class="slide-content p-absolute  ">
                                                 <div class="content p-relative">
                                                     <div class="d-block"></div>
-                                                    <h1 class="title  d-inline-block Page_third_title">
+                                                    <div class="metas d-inline-block Page_third_title">
                                                         Automated Remediation
-                                                    </h1>
+                                                    </div>
                                                     <p
                                                         class="max-w570 mt-30 description text-justify Page_third_description ">
                                                         Elevate your
@@ -162,9 +212,9 @@
                                             <div class="slide-content p-absolute  ">
                                                 <div class="content p-relative">
                                                     <div class="d-block"></div>
-                                                    <h1 class="title  d-inline-block Page_four_title">
+                                                    <div class="metas d-inline-block Page_four_title">
                                                         Readymade Provisioning in the Cloud
-                                                    </h1>
+                                                    </div>
                                                     <p
                                                         class="max-w570 mt-30 description text-justify Page_four_description ">
                                                         With
@@ -189,9 +239,9 @@
                                             <div class="slide-content p-absolute  ">
                                                 <div class="content p-relative">
                                                     <div class="d-block"></div>
-                                                    <h1 class="title  d-inline-block Page_five_title">
+                                                    <div class="metas d-inline-block Page_five_title">
                                                         Our Platform
-                                                    </h1>
+                                                    </div>
                                                     <p
                                                         class="max-w570 mt-30 description text-justify Page_five_description">
                                                         Elevate
@@ -212,9 +262,9 @@
                                             <div class="slide-content p-absolute  ">
                                                 <div class="content p-relative">
                                                     <div class="d-block"></div>
-                                                    <h1 class="title  d-inline-block Page_six_title ">
+                                                    <div class="metas  d-inline-block Page_six_title ">
                                                         About Us
-                                                    </h1>
+                                                    </div>
                                                     <p
                                                         class="max-w570 mt-30 description text-justify Page_six_description ">
                                                         LemONE.AI is led
@@ -252,7 +302,7 @@
                                                                         <h2 class="section-title  title-cap">
                                                                             Get in Touch
                                                                         </h2>
-                                                                        <p class="mt-30 ">We are
+                                                                        <p class="">We are
                                                                             headquartered in the
                                                                             San Francisco Bay area. <br>
                                                                             You can reach us at <a class="Email"
@@ -271,11 +321,11 @@
                                                                                 <div class="entry-box">
                                                                                     <label>Your name *</label>
                                                                                     <input id="entry.327751842"
-                                                                                        type="text"
+                                                                                        type="text" 
                                                                                         name="entry.327751842"
                                                                                         placeholder="Type your name"
                                                                                         required="required"
-                                                                                        data-error="Name is required." />
+                                                                                        data-parsley-required-message="Please enter Name" />
                                                                                 </div>
                                                                                 <div class="help-block with-errors">
                                                                                 </div>
@@ -285,14 +335,12 @@
                                                                                 <div class="entry-box">
                                                                                     <label>Mobile Number *</label>
                                                                                     <input id="entry.938007403"
-                                                                                        minlength="10"
-                                                                                        data-parsley-type="digits"
-                                                                                        type="text"
+                                                                                        minlength="10" type="number"
                                                                                         name="entry.938007403"
                                                                                         maxlength="12"
                                                                                         placeholder="Type Mobile Number"
                                                                                         required="required"
-                                                                                        data-error="Mobile Number is required." />
+                                                                                        data-parsley-required-message="Please enter Mobile number" />
                                                                                 </div>
                                                                                 <div class="help-block with-errors">
                                                                                 </div>
@@ -305,7 +353,7 @@
                                                                                         name="entry.1557864157"
                                                                                         placeholder="Type your Email Address"
                                                                                         required="required"
-                                                                                        data-error="Valid email is required." />
+                                                                                        data-parsley-required-message="Please enter Email address" />
                                                                                 </div>
                                                                                 <div class="help-block with-errors">
                                                                                 </div>
@@ -318,44 +366,24 @@
                                                                                         name="entry.2034685248"
                                                                                         placeholder="Tell us about you and the world"
                                                                                         required="required"
-                                                                                        data-error="Please,leave us a message."></textarea>
+                                                                                        data-parsley-required-message="Please enter Message"></textarea>
                                                                                 </div>
                                                                                 <div class="help-block with-errors">
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="captch-form">
-                                                                                <label for="check">
-                                                                                    <div class="input-container">
-                                                                                        <input type="checkbox"
-                                                                                            class="checkbox" id="check"
-                                                                                            required="required">
-                                                                                        <span class="checkbox-text">I'm
-                                                                                            not a robot</span>
-                                                                                    </div>
-                                                                                </label>
-                                                                                <img
-                                                                                    src="https://www.gstatic.com/recaptcha/api2/logo_48.png">
-                                                                                <span class="recaptcha">reCAPTCHA</span>
-                                                                                <br>
+                                                                            <div class="g-recaptcha"
+                                                                                data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"
+                                                                                data-callback="recaptchaCallback"></div>
 
-                                                                                <div class="triangle"></div>
-                                                                                <div class="not-human">
-                                                                                    <input type="text"
-                                                                                        class="captcha-code"
-                                                                                        placeholder="Type the text">
-                                                                                    <div class="line"></div>
-                                                                                    <img
-                                                                                        src="https://i.imgur.com/YvGc2Tt.png">
-                                                                                    <div class="controls">
-                                                                                        <div class="img replay"></div>
-                                                                                        <div class="img audio"></div>
-                                                                                        <div class="img info"></div>
-                                                                                        <input type="button"
-                                                                                            class="verify"
-                                                                                            value="Verify">
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                                                            <!-- g-captcha/parsely error notice -->
+                                                                            <input id="myField"
+                                                                                data-parsley-errors-container="#errorContainer"
+                                                                                data-parsley-required="true"
+                                                                                data-parsley-error-message="Please verify if you're not robot"
+                                                                                value="" type="text"
+                                                                                style="display:none;">
+                                                                            <span id='errorContainer'></span>
+
                                                                             <div class="text-right">
                                                                                 <div class="image-zoom w-auto d-inline-block"
                                                                                     data-dsn="parallax">
@@ -622,7 +650,7 @@
                                                                                 name="entry.327751842"
                                                                                 placeholder="Type your name"
                                                                                 required="required"
-                                                                                data-error="Name is required." />
+                                                                                data-parsley-required-message="Please enter Name" />
                                                                         </div>
                                                                         <div class="help-block with-errors">
                                                                         </div>
@@ -631,13 +659,12 @@
                                                                     <div class="form-group">
                                                                         <div class="entry-box">
                                                                             <label>Mobile Number *</label>
-                                                                            <input id="entry.938007403" type="text"
-                                                                                minlength="10"
-                                                                                data-parsley-type="digits"
-                                                                                maxlength="12" name="entry.938007403"
+                                                                            <input id="entry.938007403" minlength="10"
+                                                                                type="number" name="entry.938007403"
+                                                                                maxlength="12"
                                                                                 placeholder="Type Mobile Number"
                                                                                 required="required"
-                                                                                data-error="Mobile Number is required." />
+                                                                                data-parsley-required-message="Please enter Mobile number" />
                                                                         </div>
                                                                         <div class="help-block with-errors">
                                                                         </div>
@@ -649,7 +676,7 @@
                                                                                 name="entry.1557864157"
                                                                                 placeholder="Type your Email Address"
                                                                                 required="required"
-                                                                                data-error="Valid email is required." />
+                                                                                data-parsley-required-message="Please enter Email address" />
                                                                         </div>
                                                                         <div class="help-block with-errors">
                                                                         </div>
@@ -662,40 +689,23 @@
                                                                                 name="entry.2034685248"
                                                                                 placeholder="Tell us about you and the world"
                                                                                 required="required"
-                                                                                data-error="Please,leave us a message."></textarea>
+                                                                                data-parsley-required-message="Please enter Message"></textarea>
                                                                         </div>
                                                                         <div class="help-block with-errors">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="captch-form">
-                                                                        <label for="check">
-                                                                            <div class="input-container">
-                                                                                <input type="checkbox" class="checkbox"
-                                                                                    id="check" required="required">
-                                                                                <span class="checkbox-text">I'm not a
-                                                                                    robot</span>
-                                                                            </div>
-                                                                        </label>
-                                                                        <img
-                                                                            src="https://www.gstatic.com/recaptcha/api2/logo_48.png">
-                                                                        <span class="recaptcha">reCAPTCHA</span>
-                                                                        <br>
+                                                                    <div class="g-recaptcha"
+                                                                        data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"
+                                                                        data-callback="recaptchaCallback"></div>
 
-                                                                        <div class="triangle"></div>
-                                                                        <div class="not-human">
-                                                                            <input type="text" class="captcha-code"
-                                                                                placeholder="Type the text">
-                                                                            <div class="line"></div>
-                                                                            <img src="https://i.imgur.com/YvGc2Tt.png">
-                                                                            <div class="controls">
-                                                                                <div class="img replay"></div>
-                                                                                <div class="img audio"></div>
-                                                                                <div class="img info"></div>
-                                                                                <input type="button" class="verify"
-                                                                                    value="Verify">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                    <!-- g-captcha/parsely error notice -->
+                                                                    <input id="myField"
+                                                                        data-parsley-errors-container="#errorContainer"
+                                                                        data-parsley-required="true"
+                                                                        data-parsley-error-message="Please verify if you're not robot"
+                                                                        value="" type="text" style="display:none;">
+                                                                    <span id='errorContainer'></span>
+
                                                                     <div class="text-right">
                                                                         <div class="image-zoom w-auto d-inline-block"
                                                                             data-dsn="parallax">
@@ -744,96 +754,19 @@
     <!--    </div>-->
     <!--</div>-->
     <!-- ========== End Cursor Page ========== -->
+
     <!-- ========== paginate-right-page ========== -->
     <div class="dsn-paginate-right-page"></div>
     <!-- ========== Line left & right with creative page ========== -->
     <div class="line-border-style w-100 h-100"></div>
 
-
-    <!-- Optional JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!--<script src="assets/js/jquery-3.1.1.min.js"></script>-->
     <script src="assets/js/plugins.min.js"></script>
     <script src="assets/js/dsn-grid.min.js"></script>
     <script src="assets/js/custom.js"></script>
 
-    <script type="text/javascript">
-        var submitted = false;
-    </script>
-    <script type="text/javascript">
-        $('#gform').on('submit', function (e) {
-            $('#gform *').fadeOut(2000);
-            $('#gform').prepend('Thank you for getting in touch...');
-        });
-
-        $(document).ready(function () {
-            $('.not-human, .triangle').hide();
-            $('.verify').addClass('disabled');
-
-            function human(e) {
-                if ($('.checkbox-text').hasClass('robot')) {
-                    return;
-                }
-                else {
-                    $('.checkbox-text').text("You're human!").css("color", "green").addClass('human');
-                    $('.checkbox').addClass('disabled');
-                    $('.checkbox').click(function (e) {
-                        e.preventDefault();
-                    });
-                }
-
-                $('.not-human, .triangle').slideUp();
-            }
-
-            function robot(event) {
-                if ($('.checkbox-text').hasClass('human')) {
-                    return;
-                }
-                else {
-                    $('.checkbox-text').text("ROBOT").css("color", "red").addClass('robot');
-                    $('.checkbox').addClass('disabled');
-                    $('.checkbox').click(function (event) {
-                        event.preventDefault();
-                    });
-
-                    $('.not-human, .triangle').slideDown();
-                }
-            }
-
-            $('.checkbox').click(function () {
-                if ($('.checkbox').is(":checked")) {
-                    $(document).mousemove(function () {
-                        window.setTimeout(function () {
-                            human();
-                        }, 250);
-                    });
-
-                    window.setTimeout(function () {
-                        robot();
-                    }, 1000);
-                };
-            });
-
-            $('.captcha-code').keyup(function (event) {
-                if ($('.captcha-code').val().length <= 0) {
-                    $('.verify').addClass('disabled');
-                }
-                else {
-                    $('.verify').removeClass('disabled');
-                };
-            });
-
-            $('.verify').click(function () {
-                if ($('.captcha-code').val() == "captcha code") {
-                    $('.checkbox-text').removeClass('robot').addClass('human');
-                    $('.not-human, .triangle').slideUp();
-                }
-            });
-        });
-
-    </script>
+    <!--<link href="-->
+    <!--https://cdn.jsdelivr.net/npm/parsleyjs@2.9.2/src/parsley.min.css-->
+    <!--" rel="stylesheet">-->
 
 </body>
 
