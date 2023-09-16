@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     // Page First start
     var Page_first_title = "100% Visibility into the entire security landscape";
-    var Page_first_description ="Recognize the paramount significance of 100% visibility into the entire security landscape. LemONE AI platform offers meticulous asset management, meticulous risk assessment, and unparalleled  transparency across on-prem, multi-cloud, and edge locations. This empowers CISOs, IT, Security Teams, and Application  Development Teams with actionable insights, ensuring informed decisions that enhance your organization s security posture";
+    var Page_first_description ="Recognize the paramount significance of 100% visibility into the entire security landscape. LemONE AI platform offers meticulous asset risk assessment, and unparalleled transparency across on-prem, multi-cloud, and edge locations. This empowers CISOs, Info Security, Compliance and Auditor Personas with actionable insights, ensuring informed decisions that enhance your organizations security posture";
     // Page First end
 
     // Page Second start
@@ -27,7 +27,7 @@ $(document).ready(function(){
 
     // Page six start
     var Page_six_title = "About Us";
-    var Page_six_description = "LemONE.AI is led by  seasoned experts, and leaders in Cyber Security, AI, Cloud, and Networking. Our founders embody innovation, experience, and a proven track record.";
+    var Page_six_description = "LemONE.AI is led by seasoned experts, and leaders in Cyber Security, AI, Cloud, and Networking. Our founders embody innovation, experience, and a proven track record.";
     // Page six end
 
     // Email start 
